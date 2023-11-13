@@ -1,0 +1,8 @@
+Crear Proyecto
+ng new appSCleditos --no-standalone --routing --ssr=false
+Componente
+ng g c nombre
+Module
+ng g m nombre --routing
+Service
+ng g s nombre
