@@ -1,0 +1,15 @@
+/* reportes.component.css */
+
+
+.print-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px; /* Increase the padding to make the button larger */
+  font-size: 16px; /* Increase the font size for better visibility */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

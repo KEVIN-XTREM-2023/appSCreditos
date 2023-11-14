@@ -1,0 +1,23 @@
+
+<h2>Login</h2>
+<p>Ingrese Credenciales:</p>
+<div class="form-container">
+
+<form>
+  <label for="email">Email:</label>
+  <input type="email" id="email" required name="email" [(ngModel)]="usuario.email" />
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" required name="contrasena" [(ngModel)]="usuario.password">
+  <div *ngIf="error">
+    <label class="form-label "  for="error"  style="color: red;" >{{strError}}</label>
+  </div>
+  
+  <button type="button" (click)="login()">Login</button>
+  <br>
+  <button type="button" (click)="closeDialog()">Close</button>
+  
+</form>
+  
+</div>
+

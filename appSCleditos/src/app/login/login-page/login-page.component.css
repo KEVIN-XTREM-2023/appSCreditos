@@ -1,0 +1,33 @@
+/* header.component.css */
+
+.app-header {
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  justify-content: space-between;
+  padding: 30px;
+  background-color: #333; /* Choose your background color */
+  color: #fff; /* Choose your text color */
+}
+
+.header-left img {
+  max-height: 70px; /* Set the max height for your logo */
+}
+
+.header-center h1 {
+  margin: 0;
+  font-size: 50px;
+}
+
+.header-right a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff; /* Choose your link color */
+  padding: 15px;
+  font-size: 18px; /* Adjust the font size as needed */
+}
+
+
+.header-right mat-icon {
+  margin-right: 5px; /* Adjust the margin as needed */
+}

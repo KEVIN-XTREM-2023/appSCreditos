@@ -1,0 +1,61 @@
+<!-- header.component.html -->
+
+<header class="app-header">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <div class="header-left">
+      
+      <div *ngIf="valImagen">
+          <img src="{{valImagen}}" alt="Usuario">
+      </div>
+      <div *ngIf="!valImagen">
+          <img src="https://sangabriel.fin.ec/images/imagenes/home-image/logocreditos.png" alt="Usuario" >
+      </div>
+      <div *ngIf="btnEditarImagen"> 
+        <input type="text" id="imagen" name="imagen" [(ngModel)]="inputImage" />
+        <button type="button" (click)="guardarImage()">Save</button>
+        <button type="button" (click)="cancelarEditImage()">Close</button>
+      </div> 
+      <div class="header-right"  *ngIf="_eventEmitter.getShowUser()">
+        <div *ngIf="!btnEditarImagen">
+          <button type="button" (click)="editImage()">Edit</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="header-center"> 
+      
+      <div *ngIf="valTitulo">
+        <h1>{{valTitulo}}</h1>
+      </div>
+      <div *ngIf="!valTitulo">
+        <h1>Simulador de Créditos</h1>
+      </div>
+      <div *ngIf="btnEditarTitulo"> 
+        <input type="text" id="titulo" name="titulo"  [(ngModel)]="inputTitulo"/>
+        <button type="button" (click)="guardarTitulo()">Save</button>
+        <button type="button" (click)="cancelarEditTitulo()">Close</button>
+      </div> 
+      <div class="header-right"  *ngIf="_eventEmitter.getShowUser()">
+        <div *ngIf="!btnEditarTitulo">
+          <button type="button" (click)="editTitle()">Edit</button>
+        </div>
+      </div>
+      
+      
+      
+    </div>
+    <div class="header-right" *ngIf="!_eventEmitter.getShowUser()">
+      <a (click)="openLoginDialog()">
+        <mat-icon>account_circle</mat-icon> Ingresar
+      </a> 
+    </div>
+    <div class="header-right"  *ngIf="_eventEmitter.getShowUser()">
+      <p>{{valUsuario}}</p>
+      <a (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon> Salir
+      </a>
+    </div>
+  </header>
+ 
+  
