@@ -44,7 +44,7 @@ export class LoginPageComponent {
   openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
       width: '300px',
-      position: {  top: '10px', left: '1200px' }, 
+      position: {  top: '5px', left: '1200px' }, 
     });
 
     // You can subscribe to the dialog's afterClosed observable to handle the result

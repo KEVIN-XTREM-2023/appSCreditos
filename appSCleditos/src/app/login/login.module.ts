@@ -5,6 +5,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { FormularioCreditoModule } from '../formulario-credito/formulario-credito.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
     CommonModule,
     MatIconModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    FormularioCreditoModule
   ],
   exports :[ 
     MatIconModule,
