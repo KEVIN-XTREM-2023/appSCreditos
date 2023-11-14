@@ -1,11 +1,17 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Headers: *');
+header("Access-Control-Allow-Headers: Origin, X-Requested-with, Content-type, Accept, Authorization");
+header("Content-Type: application/json");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+
+
+$param = json_decode(file_get_contents("php://input"));
+
 
 include '../conexion.php'; 
-$email = $_POST['email_adm'];
-$contrasenia = $_POST['cont_adm'];
+$email = $param->email_adm;  
+$contrasenia = $param->cont_adm;
 
 
 $myArray=[];
