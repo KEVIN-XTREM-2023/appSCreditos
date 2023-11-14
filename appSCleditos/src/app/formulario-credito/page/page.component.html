@@ -1,120 +1,61 @@
-<!-- formulario-credito.component.html -->
+<form (ngSubmit)="calcularAmortizacion()">
+  <label for="tipo_credito">Tipo de Crédito:</label>
+  <select name="tipo_credito" id="tipo_credito" required>
+      <option disabled value="" selected>Seleccionar un elemento</option>
+      <option value="1">PRODUCTIVO PYMES (10.4%)</option>
+      <option value="2">PRODUCTIVO EMPRESARIAL (9.3%)</option>
+      <option value="3">PRODUCTIVO CORPORATIVO (8.3%)</option>
+      <option value="4">CONSUMO (14%)</option>
+      <option value="5">MICROCREDITO (17.99%)</option>
+      <option value="6">VIVIENDA (9.5%)</option>
+      <option value="7">ESTUDIANTIL (12.2%)</option>
+      <option value="8">MAESTRÍAS (12.2%)</option>
+      <option value="9">PHD (12.2%)</option>
+  </select>
 
-<form (ngSubmit)="onEnviar()" id="formularioCredito">
+  <br>
 
-    <div class="w3-row">
-      <div class="w3-half">
-        <div class="w3-right">
-          <p>
-            <label for="tipoCredito">¿Qué tipo de crédito estás buscando?</label>
-          </p>
-          <div class="w3-row" style="min-width: 400px;">
-            <div class="w3-col" style="width:90%">
-              <div class="selectWrapper">
-                <select class="selectBox" name="tipoCredito" id="tipoCredito" (change)="onChangeTipoCredito($event)">
-                  <option disabled="" value="" selected="">Seleccionar un elemento</option>
-                  <option value="1">PRODUCTIVO PYMES (10.4%)</option>
-                  <option value="2">PRODUCTIVO EMPRESARIAL (9.3%)</option>
-                  <option value="3">PRODUCTIVO CORPORATIVO (8.3%)</option>
-                  <option value="4">CONSUMO (14%)</option>
-                  <option value="5">MICROCREDITO (17.99%)</option>
-                  <option value="6">VIVIENDA (9.5%)</option>
-                  <option value="7">ESTUDIANTIL (12.2%)</option>
-                  <option value="8">MAESTRIAS (12.2%)</option>
-                  <option value="9">PHD (12.2%)</option>
-                </select>
-              </div>
-            </div>
-            <div class="w3-col" style="width:10%">
-              <div class=" w3-red w3-circle w3-center circle"></div>
-            </div>
-          </div>
-  
-          <p></p>
-  
-          <p>
-            <label for="valorCredito">Monto que dinero que necesitas</label>
-          </p>
-          <div class="w3-row" style="min-width: 400px;">
-            <div class="w3-col" style="width:90%">
-              <div class="selectWrapper">
-                <input (change)="onChangeMonto($event)" required="" class="selectBox" disabled="true" name="valorCredito" id="valorCredito" type="number" min="1">
-              </div>
-              <div class="w3-center">
-                <label style="font-size: 14px; color: gainsboro;" id="money" for="">$0.00</label>
-              </div>
-            </div>
-  
-            <div class="w3-col" style="width:10%">
-              <div class=" w3-red w3-circle w3-center circle">
-                USD
-              </div>
-            </div>
-          </div>
-  
-          <div class="slidecontainer">
-            <br>
-            <input id="rango2" type="range" disabled="true" value="1" (input)="onRango2($event)" min="1" max="100" style="width: 100%;">
-          </div>
-  
-          <p></p>
-  
-          <p>
-            <label for="tiempoCredito">¿En cuanto tiempo quieres pagarlo?</label>
-          </p>
-          <div class="w3-row" style="min-width: 400px;">
-            <div class="w3-col" style="width:90%">
-              <div class="selectWrapper">
-                <input required="" class="selectBox" disabled="true" name="tiempoCredito" (change)="onChangeTiempo($event)" value="1" id="tiempoCredito" type="number" min="1">
-              </div>
-            </div>
-            <div class="w3-col" style="width:10%">
-              <div class=" w3-red w3-circle w3-center circle">
-                meses
-              </div>
-            </div>
-          </div>
-  
-          <div class="slidecontainer">
-            <br>
-            <input id="rango" type="range" disabled="true" value="1" (input)="onRango($event)" min="1" max="100" style="width: 100%;">
-          </div>
-  
-          <p></p>
-  
-          <p>
-            <label for="sistemaAmortizacion">Sistema de amortización</label>
-          </p>
-          <div class="w3-row" style="min-width: 400px;">
-            <div class="w3-col" style="width:90%">
-              <div class="selectWrapper">
-                <select class="selectBox" name="sistemaAmortizacion" id="sistemaAmortizacion">
-                  <option value="1">FRANCÉS (CUOTA FIJA)</option>
-                  <option value="2">ALEMAN (CUOTA VARIABLE)</option>
-                </select>
-              </div>
-            </div>
-            <div class="w3-col" style="width:10%">
-              <div class=" w3-red w3-circle w3-center circle"></div>
-            </div>
-          </div>
-  
-          <p></p>
-        </div>
-      </div>
-      <div class="w3-half " style="padding-left: 50px;">
-        <div class="w3-display-container" style="position: relative;height: 450px">
-          <div class="w3-display-bottomleft">
-            <p>
-              <button class="selectWrapperButton">Generar</button>
-            </p>
-            <p>
-              <button type="button" class="selectWrapperButton2" (click)="limpiarValores()">Limpiar</button>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-  </form>
-  
+  <label for="monto">Monto:</label>
+  <input type="number" name="monto" id="monto" required>
+
+  <br>
+
+  <label for="plazo">Plazo (en meses):</label>
+  <input type="number" name="plazo" id="plazo" required>
+
+  <br>
+
+  <label for="sistema_amortizacion">Sistema de Amortización:</label>
+  <select name="sistema_amortizacion" id="sistema_amortizacion" required>
+      <option value="1">FRANCÉS (CUOTA FIJA)</option>
+      <option value="2">ALEMÁN (CUOTA VARIABLE)</option>
+  </select>
+
+  <br>
+
+  <input type="submit" value="Calcular">
+</form>
+
+<div *ngIf="tablaAmortizacion.length > 0">
+  <h2>Tabla de Amortización</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Cuota No.</th>
+        <th>Capital</th>
+        <th>Interés</th>
+        <th>Cuota</th>
+        <th>Saldo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of tablaAmortizacion">
+        <td>{{ row.CuotaNo }}</td>
+        <td>{{ row.Capital }}</td>
+        <td>{{ row.Interes }}</td>
+        <td>{{ row.Cuota }}</td>
+        <td>{{ row.Saldo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

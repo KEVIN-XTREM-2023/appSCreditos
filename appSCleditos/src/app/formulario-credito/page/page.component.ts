@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-page',
@@ -6,50 +7,42 @@ import { Component } from '@angular/core';
   styleUrl: './page.component.css'
 })
 export class PageComponent {
-  // Variables para almacenar datos del formulario
-  tipoCredito: string = '';
-  valorCredito: number | null = null;
-  tiempoCredito: number | null = null;
-  sistemaAmortizacion: string = '';
+  @ViewChild('tipoCreditoRef') tipoCreditoRef: any;
+  @ViewChild('montoRef') montoRef: any;
+  @ViewChild('plazoRef') plazoRef: any;
+  @ViewChild('sistemaAmortizacionRef') sistemaAmortizacionRef: any;
 
-  // Función para manejar el envío del formulario
-  onEnviar() {
-    // Lógica para manejar el envío del formulario
-    console.log('Formulario enviado');
-    console.log('Tipo de Crédito:', this.tipoCredito);
-    console.log('Valor de Crédito:', this.valorCredito);
-    console.log('Tiempo de Crédito:', this.tiempoCredito);
-    console.log('Sistema de Amortización:', this.sistemaAmortizacion);
+  tablaAmortizacion: any[] = [];
+
+  constructor(private amortizationService: ServiceService) {
+    this.tablaAmortizacion = [];
   }
 
-  // Otras funciones para manejar eventos como cambios en los campos del formulario
-  onChangeTipoCredito(event: any) {
-    this.tipoCredito = event.target.value;
+  calcularAmortizacion() {
+    const tipoCreditoElement = document.getElementById('tipo_credito') as HTMLSelectElement;
+    const montoElement = document.getElementById('monto') as HTMLInputElement;
+    const plazoElement = document.getElementById('plazo') as HTMLInputElement;
+    const sistemaAmortizacionElement = document.getElementById('sistema_amortizacion') as HTMLSelectElement;
+  
+    if (
+      tipoCreditoElement &&
+      montoElement &&
+      plazoElement &&
+      sistemaAmortizacionElement
+    ) {
+      const tipoCredito = tipoCreditoElement.value;
+      const monto = parseFloat(montoElement.value);
+      const plazo = parseFloat(plazoElement.value);
+      const sistemaAmortizacion = sistemaAmortizacionElement.value;
+  
+      this.tablaAmortizacion = this.amortizationService.calcularAmortizacion(
+        tipoCredito,
+        monto,
+        plazo,
+        sistemaAmortizacion
+      );
+    }
   }
-
-  onChangeMonto(event: any) {
-    this.valorCredito = +event.target.value;
-    // Aquí puedes realizar lógica adicional si es necesario
-  }
-
-  onRango2(event: any) {
-    // Lógica para manejar cambios en el rango 2
-  }
-
-  onChangeTiempo(event: any) {
-    this.tiempoCredito = +event.target.value;
-    // Aquí puedes realizar lógica adicional si es necesario
-  }
-
-  onRango(event: any) {
-    // Lógica para manejar cambios en el rango
-  }
-
-  limpiarValores() {
-    // Lógica para limpiar los valores del formulario
-    this.tipoCredito = '';
-    this.valorCredito = null;
-    this.tiempoCredito = null;
-    this.sistemaAmortizacion = '';
-  }
+  
+  
 }

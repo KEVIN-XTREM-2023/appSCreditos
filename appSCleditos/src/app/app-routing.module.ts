@@ -4,7 +4,10 @@ import { FormularioCreditoModule } from './formulario-credito/formulario-credito
 
 const routes: Routes = [
   { path: '', redirectTo: '/formulario-credito', pathMatch: 'full' },
-  { path: 'formulario-credito', component: FormularioCreditoModule },
+  {
+    path: 'formulario-credito',
+    loadChildren: () => import('./formulario-credito/formulario-credito.module').then(m => m.FormularioCreditoModule)
+  },
 ];
 
 @NgModule({
