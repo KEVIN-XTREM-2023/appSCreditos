@@ -1,7 +1,8 @@
 :host {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
 }
@@ -13,6 +14,7 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 300px;
     color: #ffffff;
+    margin-bottom: 20px;
 }
 
 label {
@@ -42,9 +44,26 @@ input[type="submit"] {
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s;
-    border-radius: 5px; /* Añadir bordes redondeados */
+    border-radius: 5px;
 }
 
 input[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+table {
+    width: 1000px;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #007bff;
+    color: #ffffff;
 }
