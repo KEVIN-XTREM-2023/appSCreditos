@@ -1,18 +1,11 @@
 # Simulador Créditos
 
-
 <center>
-
 <img src="https://cdn.icon-icons.com/icons2/1468/PNG/512/monitorcashcreditcard_101090.png" alt="VB." width="200">
 </center>
 
 Simulador de créditos usando los métodos Frances y Alemán.
-
-
-
-
 Este sistema fue desarrollado como proyecto de fin de semestre para la materia de Economía, en la Universidad Técnica de Ambato.
-
 
 ## Software Utilizado
 En este proyecto, se utilizó Visual Studio Code como editor principal otras opciones podrían ser:
@@ -62,17 +55,9 @@ Cualquier tipo de version recomendable trabajar con las ultimas para no tener pr
 - Una vez que Angular CLI esté instalado, puedes crear un nuevo proyecto ejecutando el siguiente comando:
 
     ng new nombre-de-tu-proyecto
-
-
 4. Ingresa a la carpeta de tu proyecto:
-
 - cd nombre-de-tu-proyecto
-
-
 5. Inicia la aplicación:
-
-
-
 - ng serve
 
 
@@ -85,7 +70,5 @@ Cualquier tipo de version recomendable trabajar con las ultimas para no tener pr
 
 
 ### Calculo de la tabla de amortización
-![Interfaz.](https://github.com/Kevin-Saquinga/ImagenesGit/blob/final/c2.png?raw=true)
-
-
+![Login.](https://github.com/Kevin-Saquinga/ImagenesGit/blob/final/c2.png?raw=true)
 
